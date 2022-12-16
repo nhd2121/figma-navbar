@@ -19,6 +19,10 @@
   width: 100%;
 }
 
+.menu-items button:focus {
+  background-color: #E0E0E0;
+}
+
 .menu-items button {
   text-align: left;
 }
