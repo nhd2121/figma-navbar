@@ -1,95 +1,105 @@
 export const menuItems = [
   {
-    title: "Ngân sách năm",
-    url: "/nganSachNam",
+    title: "Menu 1",
+    url: "/menu1",
     submenu: [
       {
-        title: "sub ngân sách năm 1",
-        url: "/subNganSachNam1",
+        title: "Sub-menu item",
+        url: "/subMenuItem",
+      },
+      {
+        title: "Sub-menu item",
+        url: "/subMenuItem",
+      },
+      {
+        title: "Sub-menu item",
+        url: "/subMenuItem",
+      },
+      {
+        title: "Sub-menu item",
+        url: "/subMenuItem",
         submenu: [
           {
-            title: "Sub 1",
-            url: "/sub1",
+            title: "Sub-menu item",
+            url: "/subMenuItem",
           },
           {
-            title: "Sub 2",
-            url: "/sub2",
-            submenu: [
-              {
-                title: "Detail 1",
-                url: "/detail1",
-              },
-              {
-                title: "Detail 2",
-                url: "/detail2",
-              },
-            ],
+            title: "Sub-menu item",
+            url: "/subMenuItem",
           },
           {
-            title: "Sub 3",
-            url: "/sub3",
+            title: "Sub-menu item",
+            url: "/subMenuItem",
+          },
+          {
+            title: "Sub-menu item",
+            url: "/subMenuItem",
+          },
+          {
+            title: "Sub-menu item",
+            url: "/subMenuItem",
           },
         ],
       },
       {
-        title: "sub ngân sách năm 2",
-        url: "/subNganSachNam2",
+        title: "Sub-menu item",
+        url: "/subMenuItem",
       },
     ],
   },
   {
-    title: "Ngân sách tháng",
-    url: "/nganSachThang",
+    title: "Menu 1",
+    url: "/menu1",
     submenu: [
       {
-        title: "sub ngân sách tháng 1",
-        url: "/subNganSachThang1",
+        title: "Sub-menu item",
+        url: "/subMenuItem",
       },
       {
-        title: "sub ngân sách Tháng 2",
-        url: "/subNganSachThang2",
+        title: "Sub-menu item",
+        url: "/subMenuItem",
       },
     ],
   },
   {
-    title: "Báo Cáo",
-    url: "/baoCao",
+    title: "Menu 1",
+    url: "/menu",
     submenu: [
       {
-        title: "sub báo cáo 1",
-        url: "/subBaoCao1",
+        title: "Sub-menu item",
+        url: "/subMenuItem",
       },
       {
-        title: "sub báo cáo 2",
-        url: "/subBaoCao2",
+        title: "Sub-menu item",
+        url: "/subMenuItem",
       },
     ],
   },
   {
-    title: "Danh Mục",
-    url: "/danhMuc",
+    title: "Menu 1",
+    url: "/menu1",
     submenu: [
       {
-        title: "sub danh mục 1",
-        url: "/subDanhMuc1",
+        title: "Sub-menu item",
+        url: "/subMenuItem",
       },
       {
-        title: "sub danh mục 2",
-        url: "/subDanhMuc2",
+        title: "Sub-menu item",
+        url: "/subMenuItem",
       },
     ],
   },
   {
-    title: "Phân Quyền",
-    url: "/phanQuyen",
+    title: "Menu 1",
+    url: "/menu1",
     submenu: [
       {
-        title: "sub Phân Quyền 1",
-        url: "/subPhanQuyen1",
+        title: "Sub-menu item",
+        url: "/subMenuItem",
       },
       {
-        title: "sub Phân Quyền 2",
-        url: "/subPhanQuyen2",
+        title: "Sub-menu item",
+        url: "/subMenuItem",
       },
     ],
   },

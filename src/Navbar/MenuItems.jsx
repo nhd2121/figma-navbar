@@ -1,7 +1,7 @@
 import Dropdown from "./Dropdown.jsx";
 import "./Navbar.scss";
 import "./MenuItem.scss";
-import { ChevronDown } from "@carbon/icons-react";
+import { ChevronDown, ChevronUp } from "@carbon/icons-react";
 import { useState, useEffect, useRef } from "react";
 
 export default function MenuItems({ items, depthLevel }) {
@@ -33,7 +33,12 @@ export default function MenuItems({ items, depthLevel }) {
             aria-expanded={dropdown ? "true" : "false"}
             onClick={() => setDropdown((prev) => !prev)}
           >
-            {items.title} <ChevronDown className="icon-left-menu" />
+            {items.title}{" "}
+            {dropdown ? (
+              <ChevronUp className="icon-left-menu" />
+            ) : (
+              <ChevronDown className="icon-left-menu" />
+            )}
             {depthLevel > 0 ? "" : <span className="arrow" />}
           </button>
           <Dropdown
@@ -43,9 +48,9 @@ export default function MenuItems({ items, depthLevel }) {
           />
         </>
       ) : (
-        <a className="left-option-menu btn-item" href={items.url}>
+        <button className="left-option-menu btn-item" href={items.url}>
           {items.title}
-        </a>
+        </button>
       )}
     </li>
   );
