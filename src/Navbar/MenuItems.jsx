@@ -1,7 +1,7 @@
 import Dropdown from "./Dropdown.jsx";
 import "./Navbar.scss";
 import "./MenuItem.scss";
-import { ChevronDown, ChevronUp, ChevronRight } from "@carbon/icons-react";
+import { ChevronDown, ChevronUp } from "@carbon/icons-react";
 import { useState, useEffect, useRef } from "react";
 
 export default function MenuItems({ items, depthLevel }) {
