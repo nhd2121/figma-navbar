@@ -9,7 +9,7 @@ import UserAvatarLogo from "./UserAvatarLogo";
 
 export default function MenuItemRightSide() {
   return (
-    <div class="right-side">
+    <div className="right-side">
       <Search className="icon-right-menu" />
       <Notification className="icon-right-menu" />
       <Settings className="icon-right-menu" />

@@ -27,7 +27,8 @@ export default function MenuItems({ items, depthLevel }) {
       {items.submenu ? (
         <>
           <button
-            className="btn-item left-option"
+            // className="btn-item left-option {depthLevel > 0 ? 'backgroundColor: #e0e0e0': ''}"
+            className="btn-item left-option {'backgroundColor: #e0e0e0'}"
             type="button"
             aria-haspopup="menu"
             aria-expanded={dropdown ? "true" : "false"}

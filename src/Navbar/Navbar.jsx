@@ -6,9 +6,9 @@ import { menuItems } from "./ListMenuItems.js";
 
 export default function Navbar() {
   return (
-    <div class="navbar">
-      <div class="left-side">
-        <div class="logo left-option">
+    <div className="navbar">
+      <div className="left-side">
+        <div className="logo left-option">
           <img src={topLogoNavbar} className="logo" alt="logo" />
         </div>
         <nav>
@@ -20,7 +20,7 @@ export default function Navbar() {
           </ul>
         </nav>
       </div>
-      <div class="right-side">
+      <div className="right-side">
         <MenuItemRightSide />
       </div>
     </div>

@@ -12,7 +12,7 @@
   background-color: #e0e0e0;
 }
 
-.menu-items button {
+.menu-items .left-option {
   cursor: pointer;
   border: none;
   background-color: #ffff;
@@ -20,11 +20,18 @@
 }
 
 .menu-items button:focus {
-  background-color: #E0E0E0;
+  background-color: #e0e0e0;
 }
 
 .menu-items button {
   text-align: left;
+}
+
+.menu-items .left-option-menu {
+  cursor: pointer;
+  border: none;
+  background-color: #e0e0e0;
+  width: 100%;
 }
 
 .dropdown {
