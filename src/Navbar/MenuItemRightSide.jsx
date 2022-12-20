@@ -1,6 +1,6 @@
 import {
   Search,
-  Thumbnail_2,
+  Thumbnail_2 as ThumbnailIcon2,
   Notification,
   Settings,
 } from "@carbon/icons-react";
@@ -14,7 +14,7 @@ export default function MenuItemRightSide() {
       <Notification className="icon-right-menu" />
       <Settings className="icon-right-menu" />
       <UserAvatarLogo />
-      <Thumbnail_2 className="icon-right-menu" />
+      <ThumbnailIcon2 className="icon-right-menu" />
     </div>
   );
 }
