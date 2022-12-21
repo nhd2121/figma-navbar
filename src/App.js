@@ -1,11 +1,17 @@
 import "./App.css";
-import Navbar from "./Navbar/Navbar";
+import { Route, Routes } from "react-router-dom";
+import Breadcrumbs from "./Breadcrumbs";
+import NganSachNam from "./Body/Components/NganSachNam";
 
 function App() {
   return (
-    <div className="App">
-      <Navbar />
-    </div>
+    <>
+      <Breadcrumbs>
+        <Routes>
+          <Route exact path="/DangKiNganSachNam" element={<NganSachNam />} />
+        </Routes>
+      </Breadcrumbs>
+    </>
   );
 }
 

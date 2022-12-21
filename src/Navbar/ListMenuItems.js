@@ -1,11 +1,11 @@
 export const menuItems = [
   {
-    title: "Menu 1",
-    url: "/menu1",
+    title: "Ngân sách năm",
+    url: "/NganSachNam",
     submenu: [
       {
-        title: "Sub-menu item",
-        url: "/subMenuItem",
+        title: "Đăng kí ngân sách năm",
+        url: "/DangKiNganSachNam",
       },
       {
         title: "Sub-menu item",
