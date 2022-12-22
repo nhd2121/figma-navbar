@@ -2,38 +2,29 @@ import Dropdown from "./Dropdown.jsx";
 import "./Navbar.scss";
 import "./MenuItem.scss";
 import { ChevronDown, ChevronUp } from "@carbon/icons-react";
-import { useState, useEffect, useRef } from "react";
+import { useState } from "react";
+import { Link, NavLink } from "react-router-dom";
 
 export default function MenuItems({ items, depthLevel }) {
   const [dropdown, setDropdown] = useState(false);
-  let ref = useRef();
-  useEffect(() => {
-    const handler = (event) => {
-      if (dropdown && ref.current && !ref.current.contains(event.target)) {
-        setDropdown(false);
-      }
-    };
-    document.addEventListener("mousedown", handler);
-    document.addEventListener("touchstart", handler);
-    return () => {
-      // Cleanup the event listener
-      document.removeEventListener("mousedown", handler);
-      document.removeEventListener("touchstart", handler);
-    };
-  }, [dropdown]);
 
   return (
-    <li className="menu-items" ref={ref}>
+    <li
+      className="menu-items"
+      onMouseEnter={() => setDropdown(true)}
+      onMouseLeave={() => setDropdown(false)}
+      onClick={() => setDropdown(false)}
+    >
       {items.submenu ? (
         <>
-          <button
+          <NavLink
+            to={`${items.url}`}
             className={`btn-item left-option ${
               depthLevel > 0 ? "dropdown-btn-item" : ""
             }`}
             type="button"
             aria-haspopup="menu"
             aria-expanded={dropdown ? "true" : "false"}
-            onClick={() => setDropdown((prev) => !prev)}
           >
             {items.title}{" "}
             {dropdown ? (
@@ -42,7 +33,7 @@ export default function MenuItems({ items, depthLevel }) {
               <ChevronDown className="icon-left-menu" />
             )}
             {depthLevel > 0 ? "" : <span className="arrow" />}
-          </button>
+          </NavLink>
           <Dropdown
             submenus={items.submenu}
             dropdown={dropdown}
@@ -50,9 +41,13 @@ export default function MenuItems({ items, depthLevel }) {
           />
         </>
       ) : (
-        <button className="left-option-menu btn-item" href={items.url}>
+        <Link
+          to={`${items.url}`}
+          className="left-option-menu btn-item"
+          type="button"
+        >
           {items.title}
-        </button>
+        </Link>
       )}
     </li>
   );

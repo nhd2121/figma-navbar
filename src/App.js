@@ -1,16 +1,33 @@
 import "./App.css";
-import { Route, Routes } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
+import Navbar from "./Navbar/Navbar";
 import Breadcrumbs from "./Breadcrumbs";
-import NganSachNam from "./Body/Components/NganSachNam";
+import DangKiNganSachNam from "./Body/Components/DangKiNganSachNam";
+import CapNhatNganSachNam from "./Body/Components/CapNhatNganSachNam";
 
 function App() {
   return (
     <>
-      <Breadcrumbs>
-        <Routes>
-          <Route exact path="/DangKiNganSachNam" element={<NganSachNam />} />
-        </Routes>
-      </Breadcrumbs>
+      <Navbar />
+      <Breadcrumbs />
+      <Switch>
+        {/* <Route exact path="/" component={<Home />}/> */}
+        {/* <Route
+          exact
+          path="/NganSachNam"
+          component={<NganSachNam />}
+        /> */}
+        <Route
+          exact
+          path="/NganSachNam/DangKiNganSachNam"
+          component={DangKiNganSachNam}
+        />
+        <Route
+          exact
+          path="/NganSachNam/CapNhatNganSachNam"
+          component={CapNhatNganSachNam}
+        />
+      </Switch>
     </>
   );
 }

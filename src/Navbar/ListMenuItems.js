@@ -5,45 +5,45 @@ export const menuItems = [
     submenu: [
       {
         title: "Đăng kí ngân sách năm",
-        url: "/DangKiNganSachNam",
+        url: "/NganSachNam/DangKiNganSachNam",
+      },
+      {
+        title: "Cập nhật ngân sách năm",
+        url: "/NganSachNam/CapNhatNganSachNam",
       },
       {
         title: "Sub-menu item",
-        url: "/subMenuItem",
+        url: "/NganSachNam/subMenuItem",
       },
       {
         title: "Sub-menu item",
-        url: "/subMenuItem",
-      },
-      {
-        title: "Sub-menu item",
-        url: "/subMenuItem",
+        url: "/NganSachNam/subMenuItem",
         submenu: [
           {
             title: "Sub-menu item",
-            url: "/subMenuItem",
+            url: "/NganSachNam/subMenuItem/subMenuItem",
           },
           {
             title: "Sub-menu item",
-            url: "/subMenuItem",
+            url: "/NganSachNam/subMenuItem/subMenuItem",
           },
           {
             title: "Sub-menu item",
-            url: "/subMenuItem",
+            url: "/NganSachNam/subMenuItem/subMenuItem",
           },
           {
             title: "Sub-menu item",
-            url: "/subMenuItem",
+            url: "/NganSachNam/subMenuItem/subMenuItem",
           },
           {
             title: "Sub-menu item",
-            url: "/subMenuItem",
+            url: "/NganSachNam/subMenuItem/subMenuItem",
           },
         ],
       },
       {
         title: "Sub-menu item",
-        url: "/subMenuItem",
+        url: "/NganSachNam/subMenuItem",
       },
     ],
   },
@@ -53,11 +53,11 @@ export const menuItems = [
     submenu: [
       {
         title: "Sub-menu item",
-        url: "/subMenuItem",
+        url: "/menu1/subMenuItem",
       },
       {
         title: "Sub-menu item",
-        url: "/subMenuItem",
+        url: "/menu1/subMenuItem",
       },
     ],
   },
@@ -67,25 +67,11 @@ export const menuItems = [
     submenu: [
       {
         title: "Sub-menu item",
-        url: "/subMenuItem",
+        url: "/menu/subMenuItem",
       },
       {
         title: "Sub-menu item",
-        url: "/subMenuItem",
-      },
-    ],
-  },
-  {
-    title: "Menu 1",
-    url: "/menu1",
-    submenu: [
-      {
-        title: "Sub-menu item",
-        url: "/subMenuItem",
-      },
-      {
-        title: "Sub-menu item",
-        url: "/subMenuItem",
+        url: "/menu/subMenuItem",
       },
     ],
   },
@@ -95,11 +81,25 @@ export const menuItems = [
     submenu: [
       {
         title: "Sub-menu item",
-        url: "/subMenuItem",
+        url: "/menu1/subMenuItem",
       },
       {
         title: "Sub-menu item",
-        url: "/subMenuItem",
+        url: "/menu1/subMenuItem",
+      },
+    ],
+  },
+  {
+    title: "Menu 1",
+    url: "/menu1",
+    submenu: [
+      {
+        title: "Sub-menu item",
+        url: "/menu1/subMenuItem",
+      },
+      {
+        title: "Sub-menu item",
+        url: "/menu1/subMenuItem",
       },
     ],
   },
