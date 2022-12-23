@@ -10,7 +10,7 @@ const Breadcrumbs = () => {
     const pathnames = pathname.split("/").filter((item) => item);
     const capatilize = (s) => s.charAt(0).toUpperCase() + s.slice(1);
     return (
-      <div>
+      <div className="breadcrumb-container">
         <Breadcrumb>
           {pathnames.length > 0 ? (
             <Breadcrumb.Item>
