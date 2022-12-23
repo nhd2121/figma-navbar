@@ -169,7 +169,10 @@ export default function TableContentNganSachNam() {
         <div className="table-content">
           <Table columns={columns} dataSource={dataSource} />
         </div>
-        <AddNewDataForm isOpenCreateForm={isOpenCreateForm} />
+        <AddNewDataForm
+          isOpenCreateForm={isOpenCreateForm}
+          setTrigger={setOpenCreateForm}
+        />
       </div>
     </>
   );
