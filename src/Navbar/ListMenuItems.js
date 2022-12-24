@@ -48,7 +48,7 @@ export const menuItems = [
     ],
   },
   {
-    title: "Menu 1",
+    title: "Ngân sách tháng",
     url: "/menu1",
     submenu: [
       {
@@ -62,7 +62,7 @@ export const menuItems = [
     ],
   },
   {
-    title: "Menu 1",
+    title: "Báo cáo",
     url: "/menu",
     submenu: [
       {
@@ -76,7 +76,7 @@ export const menuItems = [
     ],
   },
   {
-    title: "Menu 1",
+    title: "Danh mục",
     url: "/menu1",
     submenu: [
       {
@@ -90,7 +90,7 @@ export const menuItems = [
     ],
   },
   {
-    title: "Menu 1",
+    title: "Phân quyền",
     url: "/menu1",
     submenu: [
       {

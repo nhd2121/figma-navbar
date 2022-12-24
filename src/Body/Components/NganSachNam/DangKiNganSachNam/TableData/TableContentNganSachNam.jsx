@@ -5,37 +5,43 @@ import { ChevronDown, Search, Download, Add } from "@carbon/icons-react";
 import { useState } from "react";
 import AddNewDataForm from "./AddNewDataForm";
 
+const newData = {
+  MaPhieu: " ",
+  Nam: " ",
+  CompanyCode: " ",
+  PhongBan: " ",
+  NguoiTao: " ",
+  NgayTao: " ",
+  TrangThai: [""],
+  TrangThaiToTrinh: [""],
+};
+
 export default function TableContentNganSachNam() {
   const [dataSource, setDataSource] = useState(TableDataLists);
+  const [dataInput, setDataInput] = useState(newData);
   const [isOpenCreateForm, setOpenCreateForm] = useState(false);
 
   const openCreateForm = () => {
     setOpenCreateForm(true);
   };
 
-  const addNewData = () => {
-    const STT = TableDataLists[TableDataLists.length - 1].STT;
-    const newData = {
-      STT: STT + 1,
-      MaPhieu: " ",
-      Nam: " ",
-      CompanyCode: " ",
-      PhongBan: " ",
-      NguoiTao: " ",
-      NgayTao: " ",
-      TrangThai: [],
-      TrangThaiToTrinh: [],
-      " ": " ",
-    };
-    setDataSource((pre) => {
-      return [...pre, newData];
-    });
+  const handleSubmit = () => {
+    const cloneData = [...dataSource];
+    cloneData.push({ ...dataInput, STT: 100 });
+
+    setOpenCreateForm(false);
+    setDataSource(cloneData);
+    setDataInput(newData);
   };
+
   const columns = [
     {
       title: "STT",
       dataIndex: "STT",
       key: "STT",
+      render: (index) => {
+        return index;
+      },
     },
     {
       title: "Mã phiếu",
@@ -87,21 +93,21 @@ export default function TableContentNganSachNam() {
       title: "Trạng thái",
       dataIndex: "TrangThai",
       key: "TrangThai",
-      render: (TrangThai) => (
-        <span>
-          {TrangThai.map((TrangThai) => {
-            let status = TrangThai === "Ban hành" ? "success" : "warning";
-            if (TrangThai === "Mới tạo") {
-              status = "default";
-            }
-            return (
-              <div key={TrangThai}>
-                <Badge status={status} /> {TrangThai}
-              </div>
-            );
-          })}
-        </span>
-      ),
+      render: (TrangThai) => {
+        return (
+          <div>
+            {(() => {
+              if (TrangThai === "Mới tạo") {
+                return <Badge status="default" text={TrangThai} />;
+              } else if (TrangThai === "Ban hành") {
+                return <Badge status="success" text={TrangThai} />;
+              } else {
+                return <Badge status="warning" text={TrangThai} />;
+              }
+            })()}
+          </div>
+        );
+      },
     },
     {
       title: "Trạng thái tờ trình",
@@ -109,21 +115,19 @@ export default function TableContentNganSachNam() {
       key: "TrangThaiToTrinh",
       render: (TrangThaiToTrinh) => (
         <span>
-          {TrangThaiToTrinh.map((TrangThaiToTrinh) => {
-            let status = TrangThaiToTrinh === "Đã duyệt" ? "success" : " ";
-            return (
-              <div key={TrangThaiToTrinh}>
-                <Badge status={status} /> {TrangThaiToTrinh}
-              </div>
-            );
-          })}
+          <div key={TrangThaiToTrinh}>
+            <Badge
+              status={TrangThaiToTrinh === "Đã duyệt" ? "success" : " "}
+              text={TrangThaiToTrinh}
+            />
+          </div>
         </span>
       ),
     },
     {
-      title: " ",
-      dataIndex: " ",
-      key: " ",
+      title: "Action",
+      dataIndex: "Action",
+      key: "Action",
     },
   ];
 
@@ -158,7 +162,6 @@ export default function TableContentNganSachNam() {
             </button>
             <button
               onClick={openCreateForm}
-              // onClick={addNewData}
               className="btn-table-header btn-create"
             >
               Tạo mới
@@ -172,6 +175,9 @@ export default function TableContentNganSachNam() {
         <AddNewDataForm
           isOpenCreateForm={isOpenCreateForm}
           setTrigger={setOpenCreateForm}
+          dataInput={dataInput}
+          setDataInput={setDataInput}
+          handleSubmit={handleSubmit}
         />
       </div>
     </>
