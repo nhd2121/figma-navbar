@@ -10,7 +10,7 @@ export default function AddNewDataForm(props) {
   };
 
   return props.isOpenCreateForm ? (
-    <div className="form">
+    <div onClick={() => props.setTrigger(false)} className="form">
       <div className="form-inner">
         <h2 className="form-title">Form tạo mới ngân sách</h2>
         <Form>

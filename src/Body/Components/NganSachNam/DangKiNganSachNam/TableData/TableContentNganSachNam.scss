@@ -47,4 +47,9 @@
 .icon-delete-table:hover,
 .icon-edit-table:hover {
   cursor: pointer;
+  opacity: 0.7;
+}
+
+.modalEditingData {
+    text-align: center;
 }

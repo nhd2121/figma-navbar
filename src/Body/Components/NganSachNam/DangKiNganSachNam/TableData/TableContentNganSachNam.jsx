@@ -1,5 +1,5 @@
 import "./TableContentNganSachNam.scss";
-import { Badge, Table } from "antd";
+import { Badge, Input, Modal, Table } from "antd";
 import { TableDataLists } from "./ListTableData.js";
 import {
   ChevronDown,
@@ -27,6 +27,8 @@ export default function TableContentNganSachNam() {
   const [dataSource, setDataSource] = useState(TableDataLists);
   const [dataInput, setDataInput] = useState(newData);
   const [isOpenCreateForm, setOpenCreateForm] = useState(false);
+  const [isEditing, setIsEditing] = useState(false);
+  const [editingData, setEditingData] = useState(null);
 
   const openCreateForm = () => {
     setOpenCreateForm(true);
@@ -44,7 +46,22 @@ export default function TableContentNganSachNam() {
   const onDeleteData = (STT, e) => {
     e.preventDefault();
     const dataAfterDelete = dataSource.filter((data) => data.STT !== STT);
-    setDataSource(dataAfterDelete);
+    Modal.confirm({
+      title: "Chắc chắn xóa ?",
+      onOk: () => {
+        setDataSource(dataAfterDelete);
+      },
+    });
+  };
+
+  const onEditData = (record, e) => {
+    setIsEditing(true);
+    setEditingData({ ...record });
+  };
+
+  const resetEditingForm = () => {
+    setIsEditing(false);
+    setEditingData(null);
   };
 
   const columns = [
@@ -143,7 +160,13 @@ export default function TableContentNganSachNam() {
       render: (record) => {
         return (
           <>
-            <Edit className="icon-edit-table"/>
+            <Edit
+              onClick={(e) => {
+                onEditData(record, e);
+              }}
+              style={{ color: "#0f62fe" }}
+              className="icon-edit-table"
+            />
             <TrashCan
               onClick={(e) => {
                 onDeleteData(record.STT, e);
@@ -197,6 +220,101 @@ export default function TableContentNganSachNam() {
         </div>
         <div className="table-content">
           <Table columns={columns} dataSource={dataSource} />
+          <Modal
+            className="modalEditingData"
+            title="Sửa thông tin ngân sách năm"
+            open={isEditing}
+            okText="Lưu sửa đổi"
+            cancelText="Hủy"
+            onCancel={() => {
+              resetEditingForm();
+            }}
+            onOk={() => {
+              setDataSource((pre) => {
+                return pre.map((data) => {
+                  if (data.STT === editingData.STT) {
+                    return editingData;
+                  } else {
+                    return data;
+                  }
+                });
+              });
+              resetEditingForm();
+            }}
+          >
+            <Input
+              addonBefore="Mã Phiếu"
+              value={editingData?.MaPhieu}
+              onChange={(e) => {
+                setEditingData((pre) => {
+                  return { ...pre, MaPhieu: e.target.value };
+                });
+              }}
+            />
+            <Input
+              addonBefore="Năm"
+              value={editingData?.Nam}
+              onChange={(e) => {
+                setEditingData((pre) => {
+                  return { ...pre, Nam: e.target.value };
+                });
+              }}
+            />
+            <Input
+              addonBefore="Company Code"
+              value={editingData?.CompanyCode}
+              onChange={(e) => {
+                setEditingData((pre) => {
+                  return { ...pre, CompanyCode: e.target.value };
+                });
+              }}
+            />
+            <Input
+              addonBefore="Phòng ban"
+              value={editingData?.PhongBan}
+              onChange={(e) => {
+                setEditingData((pre) => {
+                  return { ...pre, PhongBan: e.target.value };
+                });
+              }}
+            />
+            <Input
+              addonBefore="Người tạo"
+              value={editingData?.NguoiTao}
+              onChange={(e) => {
+                setEditingData((pre) => {
+                  return { ...pre, NguoiTao: e.target.value };
+                });
+              }}
+            />
+            <Input
+              addonBefore="Ngày tạo"
+              value={editingData?.NgayTao}
+              onChange={(e) => {
+                setEditingData((pre) => {
+                  return { ...pre, NgayTao: e.target.value };
+                });
+              }}
+            />
+            <Input
+              addonBefore="Trạng thái"
+              value={editingData?.TrangThai}
+              onChange={(e) => {
+                setEditingData((pre) => {
+                  return { ...pre, TrangThai: e.target.value };
+                });
+              }}
+            />
+            <Input
+              addonBefore="Trạng thái tờ trình"
+              value={editingData?.TrangThaiToTrinh}
+              onChange={(e) => {
+                setEditingData((pre) => {
+                  return { ...pre, TrangThaiToTrinh: e.target.value };
+                });
+              }}
+            />
+          </Modal>
         </div>
         <AddNewDataForm
           isOpenCreateForm={isOpenCreateForm}
