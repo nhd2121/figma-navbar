@@ -9,7 +9,6 @@ export const TableDataLists = [
     NgayTao: "20/12/2022",
     TrangThai: "Mới tạo",
     TrangThaiToTrinh: " ",
-    Action: " ",
   },
   {
     STT: 2,
@@ -21,7 +20,6 @@ export const TableDataLists = [
     NgayTao: "20/10/2022",
     TrangThai: "Chờ soát xét",
     TrangThaiToTrinh: " ",
-    Action: " ",
   },
   {
     STT: 3,
@@ -33,6 +31,5 @@ export const TableDataLists = [
     NgayTao: "10/11/2022",
     TrangThai: "Ban hành",
     TrangThaiToTrinh: "Đã duyệt",
-    Action: " ",
   },
 ];

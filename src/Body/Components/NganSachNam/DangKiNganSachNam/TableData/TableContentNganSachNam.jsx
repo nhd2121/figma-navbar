@@ -1,7 +1,14 @@
 import "./TableContentNganSachNam.scss";
 import { Badge, Table } from "antd";
 import { TableDataLists } from "./ListTableData.js";
-import { ChevronDown, Search, Download, Add } from "@carbon/icons-react";
+import {
+  ChevronDown,
+  Search,
+  Download,
+  Add,
+  TrashCan,
+  Edit,
+} from "@carbon/icons-react";
 import { useState } from "react";
 import AddNewDataForm from "./AddNewDataForm";
 
@@ -32,6 +39,12 @@ export default function TableContentNganSachNam() {
     setOpenCreateForm(false);
     setDataSource(cloneData);
     setDataInput(newData);
+  };
+
+  const onDeleteData = (STT, e) => {
+    e.preventDefault();
+    const dataAfterDelete = dataSource.filter((data) => data.STT !== STT);
+    setDataSource(dataAfterDelete);
   };
 
   const columns = [
@@ -126,8 +139,21 @@ export default function TableContentNganSachNam() {
     },
     {
       title: "Action",
-      dataIndex: "Action",
       key: "Action",
+      render: (record) => {
+        return (
+          <>
+            <Edit className="icon-edit-table"/>
+            <TrashCan
+              onClick={(e) => {
+                onDeleteData(record.STT, e);
+              }}
+              style={{ color: "red", marginLeft: 12 }}
+              className="icon-delete-table"
+            />
+          </>
+        );
+      },
     },
   ];
 
