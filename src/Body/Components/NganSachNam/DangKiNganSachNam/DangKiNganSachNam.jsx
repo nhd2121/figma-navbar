@@ -1,7 +1,6 @@
 import "./DangKiNganSachNam.scss";
 import TableDanhSachNganSachNam from "./TableData/TableDanhSachNganSachNam";
 
-
 export default function DangKiNganSachNam() {
   return (
     <>
